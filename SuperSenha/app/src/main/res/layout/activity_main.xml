@@ -10,8 +10,196 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.espm.supersenha.MainActivity">
 
-    <TextView
+    <LinearLayout
+        android:id="@+id/secreto"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#000"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:id="@+id/color1"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#000"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:id="@+id/color2"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#000"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:id="@+id/color3"/>
+    </LinearLayout>
+
+    <GridLayout
+        android:id="@+id/grid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:columnCount="6"
+        android:layout_below="@+id/secreto"
+        android:layout_marginTop="40dp"
+        android:background="#00AFAA"
+        android:layout_centerHorizontal="true">
+
+        <!-- Linha 1 -->
+        <ImageView
+            android:id="@+id/cor00"
+            android:layout_column="0"
+            android:layout_row="0"
+            android:layout_width="55dp"
+            android:layout_height="30dp"
+            android:onClick="selecionarCor"/>
+
+        <ImageView
+            android:id="@+id/cor10"
+            android:layout_column="1"
+            android:layout_row="0"
+            android:layout_width="55dp"
+            android:layout_height="30dp"
+            android:onClick="selecionarCor" />
+
+        <ImageView
+            android:id="@+id/cor20"
+            android:layout_column="2"
+            android:layout_row="0"
+            android:layout_width="55dp"
+            android:layout_height="30dp"
+            android:onClick="selecionarCor"/>
+
+        <ImageView
+            android:id="@+id/result00"
+            android:layout_column="3"
+            android:layout_row="0"
+            android:layout_width="55dp"
+            android:layout_height="30dp" />
+
+        <ImageView
+            android:id="@+id/result10"
+            android:layout_column="4"
+            android:layout_row="0"
+            android:layout_width="55dp"
+            android:layout_height="30dp"
+            />
+
+        <ImageView
+            android:id="@+id/result20"
+            android:layout_column="5"
+            android:layout_row="0"
+            android:layout_width="55dp"
+            android:layout_height="30dp"
+           />
+
+        <!-- Linha 2 -->
+        <ImageView
+            android:id="@+id/cor01"
+            android:layout_column="0"
+            android:layout_row="1"
+            android:layout_width="55dp"
+            android:layout_height="30dp"
+            android:onClick="selecionarCor"/>
+
+        <ImageView
+            android:id="@+id/cor11"
+            android:layout_column="1"
+            android:layout_row="1"
+            android:layout_width="55dp"
+            android:layout_height="30dp"
+            android:onClick="selecionarCor"/>
+
+        <ImageView
+            android:id="@+id/cor21"
+            android:layout_column="2"
+            android:layout_row="1"
+            android:layout_width="55dp"
+            android:layout_height="30dp"
+            android:onClick="selecionarCor"/>
+
+        <ImageView
+            android:id="@+id/result01"
+            android:layout_column="3"
+            android:layout_row="1"
+            android:layout_width="55dp"
+            android:layout_height="30dp" />
+
+        <ImageView
+            android:id="@+id/result11"
+            android:layout_column="4"
+            android:layout_row="1"
+            android:layout_width="55dp"
+            android:layout_height="30dp"
+           />
+
+        <ImageView
+            android:id="@+id/result21"
+            android:layout_column="5"
+            android:layout_row="1"
+            android:layout_width="55dp"
+            android:layout_height="30dp"
+          />
+
+        <!-- Linha 3 -->
+        <ImageView
+            android:id="@+id/cor02"
+            android:layout_column="0"
+            android:layout_row="2"
+            android:layout_width="55dp"
+            android:layout_height="30dp"
+            android:onClick="selecionarCor"/>
+
+        <ImageView
+            android:id="@+id/cor12"
+            android:layout_column="1"
+            android:layout_row="2"
+            android:layout_width="55dp"
+            android:layout_height="30dp"
+            android:onClick="selecionarCor"/>
+
+        <ImageView
+            android:id="@+id/cor22"
+            android:layout_column="2"
+            android:layout_row="2"
+            android:layout_width="55dp"
+            android:layout_height="30dp"
+            android:onClick="selecionarCor"/>
+
+        <ImageView
+            android:id="@+id/result02"
+            android:layout_column="3"
+            android:layout_row="2"
+            android:layout_width="55dp"
+            android:layout_height="30dp" />
+
+        <ImageView
+            android:id="@+id/result12"
+            android:layout_column="4"
+            android:layout_row="2"
+            android:layout_width="55dp"
+            android:layout_height="30dp" />
+
+        <ImageView
+            android:id="@+id/result22"
+            android:layout_column="5"
+            android:layout_row="2"
+            android:layout_width="55dp"
+            android:layout_height="30dp" />
+
+    </GridLayout>
+
+    <Button
+        android:id="@+id/btn_jogar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/grid"
+        android:layout_marginTop="10dp"
+        android:onClick="jogar"
+        android:text="@string/lblJogar"/>
+
 </RelativeLayout>

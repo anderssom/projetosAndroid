@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SuperSenha</string>
+    <string name="lblJogar">Start</string>
+    <string name="lblPronto">Ready</string>
+</resources>

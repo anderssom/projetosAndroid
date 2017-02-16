@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">SuperSenha</string>
+    <string name="app_name" translatable="false">SuperSenha</string>
+    <string name="lblJogar">Iniciar</string>
+    <string name="lblPronto">Pronto</string>
 </resources>
