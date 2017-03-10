@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">JSON</string>
+
+    <string name="jsonObject">
+        {"time":"Barcelona", "pais":"Espanha", "gols":6}
+    </string>
+
+    <string name="jsonArray">
+        {"Campeonato":"Europeu",
+            "Times":[{"Time":"Barcelona", "Pais":"Espanha", "Gols":6},
+                    {"Time":"PSG", "Pais":"França", "Gols":1}]}
+    </string>
+
+    <string-array name="marcas">
+
+    </string-array>
+</resources>
