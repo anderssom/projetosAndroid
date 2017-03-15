@@ -6,6 +6,20 @@ package com.espm.json;
 
 public class Veiculo {
     private String nomeCarro;
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Veiculo(int id) {
+
+        this.id = id;
+    }
 
     @Override
     public String toString() {

@@ -4,6 +4,7 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Display;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.AdapterView;
@@ -37,6 +38,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private Button btn_verificar;
     private List<Marca> dados;
     private List<Veiculo> nomesV;
+    private List<Modelo> modV;
+    private ArrayAdapter<Modelo> adpm;
     private ArrayAdapter<Veiculo> adpv;
     private ArrayAdapter<Marca> adp;
     /**
@@ -53,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         spMarcas = (Spinner) findViewById(R.id.spMarcas);
         spMarcas.setOnItemSelectedListener(this);
         spVeiculos = (Spinner) findViewById(R.id.spVeiculos);
+        spVeiculos.setOnItemSelectedListener(this);
         spModelos = (Spinner) findViewById(R.id.spModelos);
         btn_verificar = (Button) findViewById(R.id.btn_verificar);
 
@@ -85,16 +89,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         RequestQueue queue = Volley.newRequestQueue(this);
         queue.add(jsRequest);
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-        if(view.getId() == R.id.spMarcas){
+        //Log.i("Spinner: ", String.valueOf(parent.getId()));
+
+        //Log.i("Teste:", "teste");
+        if(parent.getId() == R.id.spMarcas){
             Marca sel = (Marca) parent.getItemAtPosition(position);
             int idParam = sel.getId();
             Log.i("ID", String.valueOf(idParam));
@@ -109,12 +112,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                         try {
                             JSONObject obj = response.getJSONObject(i);
                             nomesV.add(new Veiculo(obj.getString("name")));
-                            Log.i("JSON", String.valueOf(nomesV));
-                            //Log.i("JSON", String.valueOf(obj));
+                            //Log.i("JSON", String.valueOf(nomesV));
+                            Log.i("JSON", String.valueOf(obj));
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
+                    adpv = new ArrayAdapter<Veiculo>(getApplicationContext(), android.R.layout.simple_spinner_item, nomesV);
+                    spVeiculos.setAdapter(adpv);
                 }
             }, new Response.ErrorListener() {
                 @Override
@@ -125,6 +130,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             RequestQueue queue = Volley.newRequestQueue(this);
             queue.add(jsRequest);
 
+        }
+
+        if(parent.getId() == R.id.spVeiculos){
+            Veiculo vsel = (Veiculo) parent.getItemAtPosition(position);
+            int idVeiculo = vsel.getId();
+            Log.i("ID", String.valueOf(idVeiculo));
         }
 
     }
